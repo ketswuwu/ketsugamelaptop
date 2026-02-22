@@ -1,0 +1,276 @@
+~ start
+Aya: Damn
+=> END
+
+~ init
+set State.chest1 = 25
+set State.barrel_status = "unread"
+set State.cage_status = "unread"
+=> END
+
+~ barrel
+if State.cage_status == "read":
+	set State.player_can_move = false
+	Aya: It is NOT a cage.
+	Aya: Cool.
+	set State.player_can_move = true
+else:
+	set State.player_can_move = false
+	Aya: It's a barrel.
+	Aya: Real riveting stuff.
+	set State.barrel_status = "read"
+	set State.player_can_move = true
+=> END
+
+~ dash_tutorial
+set State.player_can_move = false
+Aya: I could probably squeeze through here if i DASHED.
+Aya: Maybe pressing C would be a good idea.
+set State.player_can_move = true
+=> END
+
+~ cage
+if State.barrel_status == "read":
+	set State.player_can_move = false
+	Aya: It is NOT a barrel.
+	Aya: Cool.
+	set State.player_can_move = true
+else:
+	set State.player_can_move = false
+	Aya: It's a cage.
+	Aya: Really interesting dude.
+	set State.cage_status = "read"
+	set State.player_can_move = true
+=> END
+
+~ killitem
+set State.player_can_move = false
+Aya: A torn up page-
+Aya: I can barely read it.
+???: The Manananggal. A wi--ed crea--re of th- night. It st-lks it's pr-y a-- sw--es w-th its cl--s
+???: It se-ms immortal. But it -as a weakness.
+???: Pl--e salt on its low-r body an...
+Aya: The message is cut short. Maybe it's trying to say I should place salt somewhere?
+Aya: Seemed kinda important.
+set State.note_status = "read"
+set State.player_can_move = true
+
+=> END
+
+~ BreakableWall
+set State.player_can_move = false
+if State.wall_status == "broken"
+	You admire the debris strewn upon the ground.
+	Aya: Hehe
+	Aya: I did that.
+	set State.player_can_move = true
+else:
+	Aya: It's a wall.
+	Aya: Though it seems to have significantly more cracks than its surroundings.
+	Aya: Brittle, easily broken.
+	set State.player_can_move = true
+
+=> END
+
+~ shopgreeting
+set State.in_shop = "true"
+set State.player_can_move = false
+if State.first_interaction == "true"
+	Jun: Oh!
+	Jun: Howdy there! 
+	Aya: Greetings, it's surprising to find a friendly face down here.
+	Aya: If you don't mind me asking what has lured you down into this crypt?
+	Jun: How direct of ya' lady. I'm Jun and I've come down here ta' find myself an artifact.
+	Jun: I'm not from round' here. I'm lookin' ta' git' myself that there artifact to put on sale in my shop.
+	Aya: ...
+	Aya: (Nakaka-nose bleed gagi.)
+	Aya: I see.
+	Jun: Who're you then? What brings ya' here?
+	Aya: It's Aya, I came down here to track someone down.
+	Jun: Ah what happened to em'? They as lost as me?
+	Aya: No. I'm afraid they're exactly where they want to be...
+	Aya: Don't worry about it.
+	Jun: R-right. Well what can I do for you?
+	set State.first_interaction = "false"
+	- Buy
+		=> shop
+	- Talk
+		=> jun_talk
+	- Note [if State.note_status == "read"]
+		=> note 
+	- Exit
+		Jun: Dang. Goin' so soon?
+		set State.player_can_move = true
+		set State.in_shop = "false"
+		=> END!
+else
+	% Jun: Hiya!
+	% Jun: Hello!
+	% Jun: Howdy!
+	- Buy
+		=> shop
+	- Talk
+		=> jun_talk
+	- Note [if State.note_status == "read"]
+		=> note 
+	- Exit
+		Jun: See ya' round'!
+		set State.player_can_move = true
+		set State.in_shop = "false"
+		=> END!
+~ note
+if State.talked == "done"
+	Aya: Thanks again for the free merchandise.
+	Jun: Don't even mention it, girl. 
+	Jun: Thank ye' for being nice.
+else:
+	Aya: Hey this note told me something about salt.
+	Aya: I don't really know what to do with it, but it kinda seems like a good idea to you know,
+	Aya: get some.
+	Jun: Oh uh... I mean yeah I got me some.
+	Aya: Cool.
+	Aya: How much for it?
+	Jun: It wasn't really meanta' be on sale I mean... I can just give it to ya'.
+	Aya: No I couldn't do-
+	Jun: Just take it. It's on me, think of yer' kind company as the payment.
+	Aya: T-thank you. It means a lot.
+	set State.salt = "got"
+	set State.talked = "done"
+=> shopgreeting
+~ jun_talk
+Jun: What's up?
+- Artifact
+	Aya: So what's this artifact you're searching for?
+	Jun: Oh!
+	Jun: I've heard rumours round' the grape vine that in some dank tomb holds a piece of art so beautiful.
+	Jun: It could rival the gods' own creations.
+	Jun: After narrowin' it down this seems to be the likeliest place for it ta' be.
+	Aya: ...And you plan to steal and sell this artwork?
+	Jun: W-well steal is an awfully strong word...
+	Aya: Right...
+	Aya: Maybe it's best you leave it here, perhaps simply seeing it would be satisfactory.
+	Aya: (Honestly it may be best you left this place entirely.)
+	Jun: I-I mean I don't think it would be wrong to take it right?
+	Jun: I mean it's not like anyone owns it no more.
+	Aya: It's literally been placed in a dungeon to keep it from being taken.
+	Jun: ...
+	Jun: Let's talk about something else!
+	=> jun_talk
+- Origin
+	Aya: You say you're not from around here correct?
+	Aya: What foreign land do you hail from then?
+	Jun: Ahh I come from the west. It's a whole lot bigger o'er there compared to here.
+	Aya: I have heard. Is the artifact the only thing that brought you to come here?
+	Jun: No no far from it. I've wanted to come here for a while now.
+	Jun: The tales'a this place make it sound incredible. Great food. Great views. Great people.
+	Jun: Unfortunately I don't think I'll get to experience those anytime soon seeing as I'm stuck down in this here dungeon.
+	Aya: R-right. Apologies, it is an unfortunate situation.
+	Jun: Issalright' I mean, I'm getting to experience the great people as we speak aren't I?
+	Aya: I don't exactly think I'd consider myself the best this land has to offer but thank you.
+	Aya: Perhaps when we both get out of this dungeon I can show you around? Get us some of that great food you came here for?
+	Jun: Well that sounds just dandy don't it. I'd love to, Aya.
+	=> jun_talk
+- Species
+	Aya: Apologies for asking this so bluntly but...
+	Aya: What exactly are you?
+	Jun: I'm a shopkeep!
+	Aya: ...
+	Aya: (Lord kunin mo na ako)
+	Aya: ehehehe no no, apologies. What species are you exactly?
+	Jun: Ahh ya' coulda' just said that!
+	Jun: I'm a thunderbird harpy!
+	Jun: Nothing too impressive honestly. I'm just a lady with wings and feathers.
+	Aya: Ahh I see, your physiology is quite interesting. I'd be interested in getting a better look.
+	Jun: W-well you can of course.
+	(You lean in closer)
+	Aya: Such pretty plumage. Are these wings your ears?
+	Jun: A-A-Ahh no they just keep me warm and protect my ears.
+	Aya: Very interesting. They are indeed attached right above where a human's ears should be. So fascinating.
+	Aya: I wonder if you have any nerve endings-
+	Jun: !!!
+	Jun: A-A-ALRIGHT THAT'S ENOUGH!
+	Jun: *scoffs
+	Jun: Ahem. That's enough. My wings are very sensitive.
+	Aya: Ahh r-right apologies.
+	=> jun_talk
+- BacK
+	=> shopgreeting
+~ shop
+set State.player_can_move = false
+
+Jun: Anything I can interest you in?
+
+if State.garlic == "bought" && State.health_potion == "bought"
+	- Back
+		Jun: Thanks for your patronage!
+		set State.player_can_move = true
+		=> shopgreeting
+
+elif State.health_potion == "bought"
+
+	- Garlic
+		if Playerdata.items["Pesos"] >= 10
+			set Playerdata.items["Pesos"] = Playerdata.items["Pesos"] - 10
+			set State.garlic = "bought"
+			Jun: Excellent choice!
+			=> shop
+		else
+			Jun: You don't have enough pesos.
+			=> shop
+
+	- Back
+		Jun: Thanks for your patronage!
+		set State.player_can_move = true
+		=> shopgreeting
+
+elif State.garlic == "bought"
+
+	- Health Potion
+		if Playerdata.items["Pesos"] >= 15
+			set Playerdata.items["Pesos"] = Playerdata.items["Pesos"] - 15
+			set State.health_potion = "bought"
+			Jun: Smart choice!
+			=> shop
+		else
+			Jun: You don't have enough pesos.
+			=> shop
+
+	- Back
+		Jun: Thanks for your patronage!
+		set State.player_can_move = true
+		=> shopgreeting
+
+else
+
+	- Health Potion (15)
+		if Playerdata.items["Pesos"] >= 15
+			set Playerdata.items["Pesos"] = Playerdata.items["Pesos"] - 15
+			set State.health_potion = "bought"
+			Jun: Smart choice!
+			=> shop
+		else
+			Jun: You don't have enough pesos.
+			=> shop
+
+	- Garlic (10)
+		if Playerdata.items["Pesos"] >= 10
+			set Playerdata.items["Pesos"] = Playerdata.items["Pesos"] - 10
+			set State.garlic = "bought"
+			Jun: Excellent choice!
+			=> shop
+		else
+			Jun: You don't have enough pesos.
+			=> shop
+
+	- Back
+		Jun: Thanks for your patronage!
+		set State.player_can_move = true
+		=> shopgreeting
+~ chest
+set State.player_can_move = false
+You lift the chest's lid. Inside are cobwebs alongside...
+25₱!
+set Playerdata.items["Pesos"] = Playerdata.items["Pesos"] + 25
+You now have {{Playerdata.items["Pesos"]}}₱
+set State.player_can_move = true
+=> END

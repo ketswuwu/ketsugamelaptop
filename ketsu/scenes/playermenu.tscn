@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cwghqfhvgvvh3"]
+
+[ext_resource type="Script" uid="uid://c3hjren6fm0at" path="res://scenes/playermenu.gd" id="1_hlls3"]
+
+[node name="Playermenu" type="CanvasLayer" unique_id=1724313910]
+
+[node name="Panel" type="Control" parent="." unique_id=211963665]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -255.0
+offset_right = 239.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hlls3")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1481227715]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "PLAYER MENU
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel" unique_id=2084377227]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 418.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer" unique_id=665543089]
+layout_mode = 2
+
+[node name="PlayerStats" type="Label" parent="Panel/PanelContainer/VBoxContainer" unique_id=2113390525]
+layout_mode = 2
+
+[node name="Abilities" type="Label" parent="Panel/PanelContainer/VBoxContainer" unique_id=250700903]
+layout_mode = 2
+
+[node name="Items" type="Label" parent="Panel/PanelContainer/VBoxContainer" unique_id=2097049897]
+layout_mode = 2

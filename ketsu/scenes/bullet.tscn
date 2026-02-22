@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch2ee2g8cgxsb"]
+
+[ext_resource type="Script" uid="uid://bu8v02tcha1ms" path="res://bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://if2ih4s4v8b2" path="res://sprites/977eec1a03bfc63a59d57232e841be4d.jpg" id="2_l5glv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eoqba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l5glv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(112, 25)
+
+[node name="bullet" type="CharacterBody2D"]
+script = ExtResource("1_y25gk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.99998474, 1.0000114)
+scale = Vector2(0.20380436, 0.20380434)
+sprite_frames = SubResource("SpriteFrames_eoqba")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(7, 2.5)
+shape = SubResource("RectangleShape2D_y25gk")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://nqajnssx0k0n"]
+
+[ext_resource type="Script" uid="uid://col1s5x0tivkk" path="res://emotes_panel.gd" id="1_jt0eh"]
+[ext_resource type="Texture2D" uid="uid://cu4s3751si0wr" path="res://sprites/talksprite/ketsutalksprite.png" id="2_jt0eh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jt0eh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jt0eh")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[node name="EmotesPanel" type="Panel" unique_id=1355411091]
+size_flags_vertical = 8
+script = ExtResource("1_jt0eh")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." unique_id=752682389]
+position = Vector2(-12.000008, -1.9999924)
+scale = Vector2(0.9186186, 0.91861844)
+sprite_frames = SubResource("SpriteFrames_jt0eh")
+animation = &"talk"

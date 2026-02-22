@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bmamodd5qvwsv"]
+
+[ext_resource type="Texture2D" uid="uid://d0rffiw2d1wyj" path="res://tiles/map/breakablewall.png" id="1_lkq01"]
+[ext_resource type="Script" uid="uid://bsyrwxx6ogfvy" path="res://scenes/breakablewall.gd" id="1_vxj4n"]
+[ext_resource type="Script" uid="uid://cxn7iipr2w0fr" path="res://scenes/wall_hitbox.gd" id="3_t1j4s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mynf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lkq01")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mynf3"]
+size = Vector2(374, 271)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkq01"]
+size = Vector2(374, 256)
+
+[node name="Node2D" type="Node2D" unique_id=159437969 groups=["breakable"]]
+script = ExtResource("1_vxj4n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=391636477 groups=["breakable"]]
+script = ExtResource("3_t1j4s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=633736236]
+sprite_frames = SubResource("SpriteFrames_mynf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1732703549]
+position = Vector2(3, -15.5)
+shape = SubResource("RectangleShape2D_mynf3")
+debug_color = Color(0.71580845, 0.44267923, 0.5228685, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D" unique_id=329318574]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D" unique_id=859341995]
+position = Vector2(3, -23)
+shape = SubResource("RectangleShape2D_lkq01")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

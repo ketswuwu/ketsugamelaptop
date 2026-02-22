@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dttikqahansw"
+path="res://.godot/imported/talking.dialogue-a7eb65ea34803c225f59ee49f57d9a5f.tres"
+
+[deps]
+
+source_file="res://dialogue/talking.dialogue"
+dest_files=["res://.godot/imported/talking.dialogue-a7eb65ea34803c225f59ee49f57d9a5f.tres"]
+
+[params]
+
+defaults=true

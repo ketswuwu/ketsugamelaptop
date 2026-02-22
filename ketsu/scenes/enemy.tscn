@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dt25rk7gid8tt"]
+
+[ext_resource type="Script" uid="uid://bjnnv8nfa7cux" path="res://scenes/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://bu6hr5t41048r" path="res://sprites/default/enemy/idle_1.png" id="2_4ra3w"]
+[ext_resource type="Script" uid="uid://dy8dj5xo6j1l3" path="res://scenes/hurtbox.gd" id="3_4ra3w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ra3w"]
+radius = 15.0
+height = 70.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
+radius = 16.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 382.00525
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md0e3"]
+radius = 16.0
+height = 68.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=1381143129 groups=["enemy"]]
+collision_layer = 16
+collision_mask = 33
+script = ExtResource("1_4ra3w")
+
+[node name="WandererTimer" type="Timer" parent="." unique_id=498703974]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1938881351]
+position = Vector2(6, -5)
+shape = SubResource("CapsuleShape2D_4ra3w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=474147839 groups=["enemy"]]
+position = Vector2(7, -6)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=47380270]
+shape = SubResource("CapsuleShape2D_7p1mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107025412]
+position = Vector2(-12, -17)
+scale = Vector2(0.34046963, 0.34046966)
+texture = ExtResource("2_4ra3w")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=1703589951]
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=837413452]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=882025899]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=155464236 groups=["enemy_hurtbox"]]
+script = ExtResource("3_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1554255047]
+position = Vector2(7, -7)
+shape = SubResource("CapsuleShape2D_md0e3")
+
+[connection signal="timeout" from="WandererTimer" to="." method="_on_wanderer_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="Area2D" method="_on_damage_timer_timeout"]
+[connection signal="area_entered" from="DetectionArea" to="Area2D" method="_on_detection_area_area_entered"]

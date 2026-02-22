@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://pah03r3ih2cc"]
+
+[ext_resource type="Texture2D" uid="uid://ur2h87m0rb5n" path="res://tiles/map/treasureroom.png" id="1_4sxf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sxf7"]
+size = Vector2(680.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usupx"]
+size = Vector2(34, 343.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32t8m"]
+size = Vector2(241.5, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8urpw"]
+size = Vector2(276, 25.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryb5y"]
+size = Vector2(31, 333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq25p"]
+size = Vector2(137, 26.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4sxf7")
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(1.75, -130)
+shape = SubResource("RectangleShape2D_4sxf7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-305, 44)
+shape = SubResource("RectangleShape2D_usupx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(-181.75, 204)
+shape = SubResource("RectangleShape2D_32t8m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(203, 202.75)
+shape = SubResource("RectangleShape2D_8urpw")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(313, 36.5)
+shape = SubResource("RectangleShape2D_ryb5y")
+
+[node name="hole" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole"]
+position = Vector2(-1.5, 202.25)
+shape = SubResource("RectangleShape2D_cq25p")

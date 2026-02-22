@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://43q55xbt378f"]
+
+[ext_resource type="PackedScene" uid="uid://bq2k8gyr10mi8" path="res://scenes/player.tscn" id="1_mlf6e"]
+[ext_resource type="PackedScene" uid="uid://c3mbxdiax41nw" path="res://scenes/room_1.tscn" id="1_po0ka"]
+[ext_resource type="Script" uid="uid://byyq7k3sfmiw3" path="res://camera_2d.gd" id="3_v1wow"]
+[ext_resource type="PackedScene" uid="uid://dt5mhlrqp6tsd" path="res://scenes/actionable.tscn" id="4_kdryc"]
+[ext_resource type="Resource" uid="uid://dttikqahansw" path="res://dialogue/talking.dialogue" id="5_6e45b"]
+[ext_resource type="PackedScene" uid="uid://cwghqfhvgvvh3" path="res://scenes/playermenu.tscn" id="7_6e45b"]
+
+[node name="game_scene" type="Node2D"]
+
+[node name="room1" parent="." instance=ExtResource("1_po0ka")]
+position = Vector2(0, 1)
+
+[node name="player" parent="." instance=ExtResource("1_mlf6e")]
+position = Vector2(4, 43)
+motion_mode = 1
+move_speed = 400.0
+
+[node name="Actionable" parent="." instance=ExtResource("4_kdryc")]
+position = Vector2(-831, 126)
+dialogue_resource = ExtResource("5_6e45b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Actionable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable/CollisionShape2D2"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(nan, nan)
+rotation = 3.14159
+scale = Vector2(0.45, nan)
+skew = nan
+offset = Vector2(0, 1)
+zoom = Vector2(0.7, 0.7)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("3_v1wow")
+
+[node name="Playermenu" parent="." instance=ExtResource("7_6e45b")]

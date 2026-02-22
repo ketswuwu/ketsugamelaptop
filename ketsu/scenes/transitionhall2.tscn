@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6rc0kvn6d4dg"]
+
+[ext_resource type="Texture2D" uid="uid://cen07frwk2ra5" path="res://tiles/map/transitionhall2.png" id="1_c88h4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c88h4"]
+size = Vector2(262, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2s1c"]
+size = Vector2(58, 1809)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kh1n"]
+size = Vector2(117.5, 1503)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85mc0"]
+size = Vector2(193, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvqpv"]
+size = Vector2(151, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c88h4")
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(131, -878)
+shape = SubResource("RectangleShape2D_c88h4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(254, 24.5)
+shape = SubResource("RectangleShape2D_w2s1c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(-280.25, -176.5)
+shape = SubResource("RectangleShape2D_8kh1n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(-255.5, -881)
+shape = SubResource("RectangleShape2D_85mc0")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2(173, 925)
+shape = SubResource("RectangleShape2D_gvqpv")

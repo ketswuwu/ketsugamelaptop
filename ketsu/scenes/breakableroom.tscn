@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bju8bfk4e1svn"]
+
+[ext_resource type="Texture2D" uid="uid://br72f4euepy07" path="res://tiles/map/breakableroom.png" id="1_krhoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krhoo"]
+size = Vector2(1196.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iag1u"]
+size = Vector2(72, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrnbk"]
+size = Vector2(1175.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noast"]
+size = Vector2(69, 385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egs5u"]
+size = Vector2(77.5, 434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v303l"]
+size = Vector2(72, 372.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oelws"]
+size = Vector2(225, 242)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63h08"]
+size = Vector2(66, 450)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_krhoo")
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(5.75, -445)
+shape = SubResource("RectangleShape2D_krhoo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-565, -329)
+shape = SubResource("RectangleShape2D_iag1u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(13.25, 608)
+shape = SubResource("RectangleShape2D_rrnbk")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(563.5, -324.5)
+shape = SubResource("RectangleShape2D_noast")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(568.25, 396)
+shape = SubResource("RectangleShape2D_egs5u")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2(-565, 438.25)
+shape = SubResource("RectangleShape2D_v303l")
+
+[node name="randomstuff" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="randomstuff"]
+position = Vector2(-8.5, -339)
+shape = SubResource("RectangleShape2D_oelws")
+
+[node name="hole" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole"]
+position = Vector2(-562, 43)
+shape = SubResource("RectangleShape2D_63h08")

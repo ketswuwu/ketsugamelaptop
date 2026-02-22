@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgyw2uy52sp0o"
+path="res://.godot/imported/Dead Cells - Prisoner's Awakening (Official Soundtrack).mp3-7b8b8d8b528bb48dfc225360d2df8e06.mp3str"
+
+[deps]
+
+source_file="res://audio/Dead Cells - Prisoner's Awakening (Official Soundtrack).mp3"
+dest_files=["res://.godot/imported/Dead Cells - Prisoner's Awakening (Official Soundtrack).mp3-7b8b8d8b528bb48dfc225360d2df8e06.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

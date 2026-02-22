@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://56qfinlgduh2"]
+
+[ext_resource type="Script" uid="uid://bsdeagxxctwps" path="res://scenes/exit.gd" id="1_l0aq0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyw7u"]
+bg_color = Color(0.2901961, 0.1254902, 0.2509804, 1)
+corner_radius_top_left = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5n14"]
+bg_color = Color(0.2901961, 0.1254902, 0.2509804, 1)
+corner_radius_top_left = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Exit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l0aq0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -168.5
+offset_right = 216.0
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyw7u")
+text = "Exit
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l5n14")
+text = "Cancel
+"
+
+[connection signal="pressed" from="VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

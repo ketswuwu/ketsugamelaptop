@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://t321k8pe0ghc"]
+
+[ext_resource type="Texture2D" uid="uid://culqvwqnp1cjm" path="res://tiles/map/bottomleftroom.png" id="1_ijoqb"]
+[ext_resource type="Script" uid="uid://c8h605a5j4cp" path="res://scenes/specialwall.gd" id="2_rexgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijoqb"]
+size = Vector2(66, 1874.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rexgv"]
+size = Vector2(1639, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo6ng"]
+size = Vector2(86.5, 1066)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iy5q"]
+size = Vector2(81.5, 331)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gllck"]
+size = Vector2(648, 169)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bbi2"]
+size = Vector2(228, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dstue"]
+size = Vector2(162.5, 164.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfxnp"]
+size = Vector2(537, 52.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aos8y"]
+size = Vector2(1485, 1699)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ijoqb")
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(-785, -4.75)
+shape = SubResource("RectangleShape2D_ijoqb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(10.5, 929)
+shape = SubResource("RectangleShape2D_rexgv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(776.75, -419)
+shape = SubResource("RectangleShape2D_wo6ng")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(774.25, 787.5)
+shape = SubResource("RectangleShape2D_8iy5q")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(46, -867.5)
+shape = SubResource("RectangleShape2D_gllck")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2(711, -871.5)
+shape = SubResource("RectangleShape2D_6bbi2")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls"]
+position = Vector2(-752.25, -868.25)
+shape = SubResource("RectangleShape2D_dstue")
+
+[node name="specialwall" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_rexgv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="specialwall"]
+position = Vector2(763.625, 361.5)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_yfxnp")
+one_way_collision = true
+one_way_collision_margin = 9.8
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11.5, 65.5)
+shape = SubResource("RectangleShape2D_aos8y")
+debug_color = Color(0.7820313, 0.37607408, 0.58160913, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="specialwall" method="_on_area_2d_body_entered"]

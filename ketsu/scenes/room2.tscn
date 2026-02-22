@@ -1,0 +1,137 @@
+[gd_scene load_steps=17 format=3 uid="uid://bbvjla7ka43os"]
+
+[ext_resource type="Script" uid="uid://bsetb1ie1x5d2" path="res://scenes/room_2.gd" id="1_d3uvb"]
+[ext_resource type="Texture2D" uid="uid://jcup44ax7015" path="res://tiles/map/room2.png" id="1_klc7l"]
+[ext_resource type="PackedScene" uid="uid://c65x1js4ybh4" path="res://scenes/door.tscn" id="3_s5pwh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3uvb"]
+size = Vector2(2091.5, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5pwh"]
+size = Vector2(62.5, 1083)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbehi"]
+size = Vector2(85.5, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfplu"]
+size = Vector2(917.5, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duage"]
+size = Vector2(54, 919)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucjjd"]
+size = Vector2(58.5, 313.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klc7l"]
+size = Vector2(1943, 1466)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xh3p"]
+size = Vector2(48.5, 251.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5pwh"]
+radius = 92.0489
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2robf"]
+size = Vector2(148, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7xmq"]
+size = Vector2(124.5, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olrvt"]
+size = Vector2(109, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wf3f"]
+size = Vector2(193, 28)
+
+[node name="room2" type="Node2D"]
+position = Vector2(-873, -528)
+script = ExtResource("1_d3uvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(903, 451)
+texture = ExtResource("1_klc7l")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(903, 451)
+
+[node name="wall1" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/wall1"]
+position = Vector2(-29.75, -715.5)
+shape = SubResource("RectangleShape2D_d3uvb")
+
+[node name="wall2" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/wall2"]
+position = Vector2(-1028.75, 281.5)
+shape = SubResource("RectangleShape2D_s5pwh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/wall2"]
+position = Vector2(-1036.25, -630.5)
+shape = SubResource("RectangleShape2D_dbehi")
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+position = Vector2(-556, 827)
+shape = SubResource("RectangleShape2D_yfplu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall3"]
+position = Vector2(574, 825.5)
+shape = SubResource("RectangleShape2D_yfplu")
+
+[node name="wall4" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/wall4"]
+position = Vector2(976, -246.5)
+shape = SubResource("RectangleShape2D_duage")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/wall4"]
+position = Vector2(978.25, 661.75)
+shape = SubResource("RectangleShape2D_ucjjd")
+
+[node name="playerdetector" type="Area2D" parent="."]
+visible = false
+position = Vector2(1477, 1253)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdetector"]
+position = Vector2(-601.5, -745)
+shape = SubResource("RectangleShape2D_klc7l")
+debug_color = Color(0.6878521, 0.39975047, 0.77509534, 0.41960785)
+
+[node name="door" parent="." instance=ExtResource("3_s5pwh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+position = Vector2(-130, 47.75)
+shape = SubResource("RectangleShape2D_7xh3p")
+debug_color = Color(0.6201905, 0.5303291, 0.22958678, 0.41960785)
+
+[node name="randomstuff" type="StaticBody2D" parent="door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/randomstuff"]
+position = Vector2(1364, -201)
+shape = SubResource("CircleShape2D_s5pwh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="door/randomstuff"]
+position = Vector2(23, -61.5)
+shape = SubResource("RectangleShape2D_2robf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="door/randomstuff"]
+position = Vector2(2.75, 1186)
+shape = SubResource("RectangleShape2D_c7xmq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="door/randomstuff"]
+position = Vector2(119.5, 1206.5)
+shape = SubResource("RectangleShape2D_olrvt")
+
+[node name="hole" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole"]
+position = Vector2(911.5, 1261)
+shape = SubResource("RectangleShape2D_5wf3f")
+
+[connection signal="body_entered" from="playerdetector" to="." method="_on_playerdetector_body_entered"]

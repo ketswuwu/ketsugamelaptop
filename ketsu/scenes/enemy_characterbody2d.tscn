@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4ltpojywomjo"]
+
+[ext_resource type="Script" uid="uid://bjnnv8nfa7cux" path="res://scenes/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://c7l10ukajeftu" path="res://theknight.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dy8dj5xo6j1l3" path="res://scenes/hurtbox.gd" id="3_4ra3w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
+radius = 18.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 255.40947
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md0e3"]
+radius = 16.0
+height = 68.0
+
+[node name="enemy" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_4ra3w")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
+position = Vector2(7, -6)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_7p1mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.999999, -17)
+scale = Vector2(0.34046963, 0.34046966)
+texture = ExtResource("1_7p1mj")
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["enemy"]]
+script = ExtResource("3_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(7, -7)
+shape = SubResource("CapsuleShape2D_md0e3")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="Area2D" method="_on_damage_timer_timeout"]
+[connection signal="area_entered" from="DetectionArea" to="Area2D" method="_on_detection_area_area_entered"]

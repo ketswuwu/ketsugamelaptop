@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://wlxig4naodtp"]
+
+[ext_resource type="Texture2D" uid="uid://c501rhl372sim" path="res://tiles/map/transitionhallboss.png" id="1_5gbhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7h4w"]
+size = Vector2(1629, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyukh"]
+size = Vector2(34, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn75x"]
+size = Vector2(1612.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fecg"]
+size = Vector2(47, 210)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oko10"]
+size = Vector2(36, 177.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec8v5"]
+size = Vector2(39.5, 151.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5gbhm")
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(-7.5, -254.5)
+shape = SubResource("RectangleShape2D_r7h4w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-803, 246.5)
+shape = SubResource("RectangleShape2D_eyukh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(-1.25, 319)
+shape = SubResource("RectangleShape2D_wn75x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(783.5, 229)
+shape = SubResource("RectangleShape2D_6fecg")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(-804, -195.75)
+shape = SubResource("RectangleShape2D_oko10")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2(783.25, -180.75)
+shape = SubResource("RectangleShape2D_ec8v5")

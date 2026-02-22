@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dtw0u0gyu6ud8"]
+
+[ext_resource type="Texture2D" uid="uid://c7l10ukajeftu" path="res://theknight.png" id="1_7ngvp"]
+[ext_resource type="Script" uid="uid://pf4bnfykybbg" path="res://scenes/manananggal.gd" id="1_poxbv"]
+[ext_resource type="Texture2D" uid="uid://bxemq57w3khc3" path="res://defaultside.png" id="2_3pkwc"]
+[ext_resource type="Texture2D" uid="uid://ccmtpxp21w5vr" path="res://icon.svg" id="3_nc17w"]
+[ext_resource type="Script" uid="uid://c157vk1c6n21g" path="res://scenes/hitboxmanananggal.gd" id="5_6wrp5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_poxbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3pkwc")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ngvp")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("3_nc17w")
+}],
+"loop": false,
+"name": &"landed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nc17w"]
+size = Vector2(114, 193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wrp5"]
+size = Vector2(110, 292)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wrp5"]
+radius = 656.64905
+
+[node name="Manananggal" type="CharacterBody2D" unique_id=942274930 groups=["enemy"]]
+script = ExtResource("1_poxbv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1966115714]
+sprite_frames = SubResource("SpriteFrames_poxbv")
+animation = &"dead"
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1472146891]
+position = Vector2(-1, 37.5)
+collision_mask = 2
+script = ExtResource("5_6wrp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1326670065]
+shape = SubResource("RectangleShape2D_nc17w")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=1809738928]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=570751531]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=486307367]
+position = Vector2(-2, 17)
+shape = SubResource("RectangleShape2D_6wrp5")
+
+[node name="WandererTimer" type="Timer" parent="." unique_id=353057484]
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=709928]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=52869156]
+shape = SubResource("CircleShape2D_6wrp5")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="WandererTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

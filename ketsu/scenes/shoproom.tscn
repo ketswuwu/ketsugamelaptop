@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfb17dgv3ey2c"]
+
+[ext_resource type="Texture2D" uid="uid://oef02divo6r" path="res://tiles/map/shoproom.png" id="1_8ocge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ocge"]
+size = Vector2(84, 1084)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijcy4"]
+size = Vector2(436, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ca5p"]
+size = Vector2(418, 50.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxawq"]
+size = Vector2(70, 477)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00r07"]
+size = Vector2(67, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocjcw"]
+size = Vector2(971.5, 73)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ocge"]
+radius = 67.11929
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8ocge")
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(-489, 3)
+shape = SubResource("RectangleShape2D_8ocge")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-286, 521)
+shape = SubResource("RectangleShape2D_ijcy4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(296, 522.75)
+shape = SubResource("RectangleShape2D_0ca5p")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(470, 313.5)
+shape = SubResource("RectangleShape2D_oxawq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(475.5, -346)
+shape = SubResource("RectangleShape2D_00r07")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2(-21.75, -423.5)
+shape = SubResource("RectangleShape2D_ocjcw")
+
+[node name="randomstuff" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="randomstuff"]
+position = Vector2(299, -392)
+shape = SubResource("CircleShape2D_8ocge")
