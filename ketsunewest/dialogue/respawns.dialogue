@@ -1,0 +1,22 @@
+~ respawn
+set State.player_can_move = false
+% Aya: Well that certainly could've gone better.
+% Aya: No rest for the wicked...
+% Aya: Off I go again.
+% Aya: ... bwiset naman.
+set State.player_can_move = true
+=> END
+~ boss
+set State.player_can_move = false
+if State.note_status == "read"
+	% Aya: Sigh... I'll get them this time for certain.
+	% Aya: They just don't know when to stand down do they?
+	% Aya: That one was my fault...
+	set State.player_can_move = true
+else
+	Aya: What was that... It felt impossible to beat them.
+	Aya: Like they wouldn't die. There has to be something I'm missing.
+	Aya: Maybe I can find something around here to help me. I should look around more.
+	set State.player_can_move = true
+
+=> END

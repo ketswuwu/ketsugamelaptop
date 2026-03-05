@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cap4ugxfnrl1l"]
+
+[ext_resource type="Texture2D" uid="uid://dttffpbcnjjx6" path="res://sprites/default/jun.png" id="1_50fxq"]
+[ext_resource type="Script" uid="uid://cypoj4apidt1u" path="res://actionable.gd" id="2_50fxq"]
+[ext_resource type="Resource" uid="uid://dttikqahansw" path="res://dialogue/talking.dialogue" id="3_50fxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld36g"]
+radius = 138.09055
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50fxq"]
+size = Vector2(185, 94)
+
+[node name="Node2D" type="Node2D" unique_id=1792490794]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=739394506]
+position = Vector2(1.1401367, 0.5000038)
+scale = Vector2(0.4041916, 0.4041916)
+texture = ExtResource("1_50fxq")
+
+[node name="Actionable" type="Area2D" parent="." unique_id=82408786]
+collision_layer = 16
+script = ExtResource("2_50fxq")
+dialogue_resource = ExtResource("3_50fxq")
+dialogue_start = "shopgreeting"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable" unique_id=208003493]
+position = Vector2(5, 1)
+shape = SubResource("CircleShape2D_ld36g")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1323005253]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=790161429]
+position = Vector2(5.5, -9)
+shape = SubResource("RectangleShape2D_50fxq")

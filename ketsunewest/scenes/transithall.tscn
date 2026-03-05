@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://wlxig4naodtp"]
+
+[ext_resource type="Texture2D" uid="uid://c501rhl372sim" path="res://tiles/map/transitionhallboss.png" id="1_5gbhm"]
+[ext_resource type="Script" uid="uid://caeurrcgbl4sx" path="res://scenes/transithall.gd" id="1_agr3p"]
+[ext_resource type="Script" uid="uid://bsi38de28x653" path="res://WaveConfig.gd" id="2_0yjmp"]
+[ext_resource type="PackedScene" uid="uid://dt25rk7gid8tt" path="res://scenes/enemy.tscn" id="3_0k00o"]
+[ext_resource type="PackedScene" uid="uid://dcroeci2yb12w" path="res://scenes/ranged_enemy.tscn" id="4_8po8h"]
+[ext_resource type="Texture2D" uid="uid://ben2lt2nxtchm" path="res://sprites/default/test/gate5.png" id="6_4yg5c"]
+[ext_resource type="Texture2D" uid="uid://cdkmad806cttr" path="res://sprites/default/test/gate3.png" id="7_2c46o"]
+[ext_resource type="Texture2D" uid="uid://caqtabkk3loxw" path="res://sprites/default/test/gate1.png" id="8_50dnu"]
+[ext_resource type="AudioStream" uid="uid://c21j2u84lrs1w" path="res://audio/soundreality-metal-door-slam-172172.mp3" id="9_2c46o"]
+[ext_resource type="AudioStream" uid="uid://dgadgwrd6a3v" path="res://audio/Hollow Knight OST - False Knight.mp3" id="10_50dnu"]
+
+[sub_resource type="Resource" id="Resource_4yg5c"]
+script = ExtResource("2_0yjmp")
+scenes = Array[PackedScene]([ExtResource("3_0k00o"), ExtResource("3_0k00o")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="Resource" id="Resource_2c46o"]
+script = ExtResource("2_0yjmp")
+scenes = Array[PackedScene]([ExtResource("4_8po8h"), ExtResource("4_8po8h")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="Resource" id="Resource_50dnu"]
+script = ExtResource("2_0yjmp")
+scenes = Array[PackedScene]([ExtResource("3_0k00o"), ExtResource("3_0k00o"), ExtResource("3_0k00o"), ExtResource("4_8po8h")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="Resource" id="Resource_kai5u"]
+script = ExtResource("2_0yjmp")
+scenes = Array[PackedScene]([ExtResource("4_8po8h"), ExtResource("3_0k00o"), ExtResource("3_0k00o"), ExtResource("4_8po8h")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7h4w"]
+size = Vector2(1629, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyukh"]
+size = Vector2(34, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn75x"]
+size = Vector2(1612.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fecg"]
+size = Vector2(47, 210)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oko10"]
+size = Vector2(36, 177.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec8v5"]
+size = Vector2(39.5, 151.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gbhm"]
+size = Vector2(1541, 511.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yjmp"]
+size = Vector2(46, 255)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kai5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4yg5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2c46o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_50dnu")
+}],
+"loop": false,
+"name": &"gate_down",
+"speed": 17.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_50dnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2c46o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4yg5c")
+}],
+"loop": false,
+"name": &"gate_up",
+"speed": 17.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"no",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k00o"]
+size = Vector2(39.5, 219.5)
+
+[node name="Node2D" type="Node2D" unique_id=144633075]
+script = ExtResource("1_agr3p")
+waves = Array[ExtResource("2_0yjmp")]([SubResource("Resource_4yg5c"), SubResource("Resource_2c46o"), SubResource("Resource_50dnu"), SubResource("Resource_kai5u")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682375967]
+texture = ExtResource("1_5gbhm")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=2127408347]
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=270655500]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls" unique_id=995860932]
+position = Vector2(-7.5, -254.5)
+shape = SubResource("RectangleShape2D_r7h4w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls" unique_id=140099862]
+position = Vector2(-803, 246.5)
+shape = SubResource("RectangleShape2D_eyukh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls" unique_id=833094204]
+position = Vector2(-1.25, 319)
+shape = SubResource("RectangleShape2D_wn75x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls" unique_id=572509884]
+position = Vector2(783.5, 229)
+shape = SubResource("RectangleShape2D_6fecg")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls" unique_id=665977458]
+position = Vector2(-804, -195.75)
+shape = SubResource("RectangleShape2D_oko10")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls" unique_id=1126181581]
+position = Vector2(783.25, -180.75)
+shape = SubResource("RectangleShape2D_ec8v5")
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1918775974]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=420113127]
+position = Vector2(-12, 53.25)
+shape = SubResource("RectangleShape2D_5gbhm")
+
+[node name="camerapoint" type="Marker2D" parent="." unique_id=765681696]
+position = Vector2(-10, 64)
+
+[node name="spawn1" type="Marker2D" parent="." unique_id=1933810869]
+position = Vector2(638, -84)
+
+[node name="spawn2" type="Marker2D" parent="." unique_id=1161575273]
+position = Vector2(638, 221)
+
+[node name="spawn3" type="Marker2D" parent="." unique_id=353255905]
+position = Vector2(-645, -104)
+
+[node name="spawn4" type="Marker2D" parent="." unique_id=1630528227]
+position = Vector2(-625, 214)
+
+[node name="nobackwall" type="StaticBody2D" parent="." unique_id=1586132681]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nobackwall" unique_id=713884576]
+position = Vector2(-808, 23.5)
+shape = SubResource("RectangleShape2D_0yjmp")
+
+[node name="gate1" type="AnimatedSprite2D" parent="nobackwall" unique_id=280298624]
+position = Vector2(-803, 24)
+scale = Vector2(1.131443, 1.131443)
+sprite_frames = SubResource("SpriteFrames_kai5u")
+animation = &"gate_up"
+
+[node name="nobackwall2" type="StaticBody2D" parent="." unique_id=644747696]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nobackwall2" unique_id=1490065067]
+position = Vector2(781.25, 9.25)
+shape = SubResource("RectangleShape2D_0k00o")
+
+[node name="gate2" type="AnimatedSprite2D" parent="nobackwall2" unique_id=182090639]
+position = Vector2(775, -13)
+scale = Vector2(1.131443, 1.131443)
+sprite_frames = SubResource("SpriteFrames_kai5u")
+animation = &"gate_up"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=565379327]
+stream = ExtResource("9_2c46o")
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=811607662]
+stream = ExtResource("10_50dnu")
+volume_db = 13.582
+bus = &"Music"

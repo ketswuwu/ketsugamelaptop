@@ -1,0 +1,19 @@
+~ start
+set State.in_cutscene = true
+set State.player_can_move = false
+Manananggal: AAAAAA
+Manananggal: How dare you... How could you have...
+Manananggal: This isn't right!
+Manananggal: You insol-
+Mayari: Tumahimik ka nga ang dami mong sinasabi. Patay ka na nga.
+Manananggal: Napakabastos mong babae! Mamamatay ka lang naman!
+Manananggal: Papatayin ka ng mga naghihintay sa iyo. Walang silbi ang paghihirap mo.
+Manananggal: Balewala ka lang.
+Mayari: Pero buhay ako, di parang ikaw.
+Manananggal: T-totoo n-naman...
+The Manananggal lays lifeless on the ground.
+You look onwards at the exit. This is going to be a long night.
+set State.in_cutscene = false
+set State.player_can_move = true
+set State.boss = ""
+=> END

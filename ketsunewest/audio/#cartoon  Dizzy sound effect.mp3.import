@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5d5t6nrbu7md"
+path="res://.godot/imported/#cartoon  Dizzy sound effect.mp3-3688bbe38eb2c7270c069128555e0072.mp3str"
+
+[deps]
+
+source_file="res://audio/#cartoon  Dizzy sound effect.mp3"
+dest_files=["res://.godot/imported/#cartoon  Dizzy sound effect.mp3-3688bbe38eb2c7270c069128555e0072.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

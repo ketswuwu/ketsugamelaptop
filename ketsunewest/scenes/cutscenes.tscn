@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ddiylgm16tt7r"]
+
+[ext_resource type="Script" uid="uid://byptj6bgocgin" path="res://cutscenes.gd" id="1_5khjm"]
+[ext_resource type="Resource" uid="uid://d3q5n5kyfwcwi" path="res://dialogue/intro.dialogue" id="2_465o6"]
+[ext_resource type="Texture2D" uid="uid://ci72ur6ipo0gj" path="res://sprites/cutscenes/intro/1.png" id="3_75cy6"]
+[ext_resource type="Texture2D" uid="uid://37a5y7c4r3ka" path="res://sprites/cutscenes/intro/2.png" id="4_ght7f"]
+[ext_resource type="Texture2D" uid="uid://br054irb2q4nl" path="res://sprites/cutscenes/intro/3.png" id="5_dc4pn"]
+[ext_resource type="Texture2D" uid="uid://b4h2jcj7fjm25" path="res://sprites/cutscenes/intro/4.png" id="6_pfeoa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_feyoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_75cy6")
+}],
+"loop": false,
+"name": &"cutscene1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ght7f")
+}],
+"loop": false,
+"name": &"cutscene2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dc4pn")
+}],
+"loop": false,
+"name": &"cutscene3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pfeoa")
+}],
+"loop": false,
+"name": &"cutscene4",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=430209534]
+script = ExtResource("1_5khjm")
+dialogue_resource = ExtResource("2_465o6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1503248889]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1057836308]
+position = Vector2(967, 553)
+scale = Vector2(1.0055555, 1.0055555)
+sprite_frames = SubResource("SpriteFrames_feyoj")
+animation = &"cutscene1"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1605740112]
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 244.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 24
+text = "Press Esc or + to skip
+"

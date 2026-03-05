@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kcsdwm7creyf"
+path="res://.godot/imported/Grimm (Hollow Knight The Grimm Troupe).mp3-75d8d4cc1cb5be57724793bde043af73.mp3str"
+
+[deps]
+
+source_file="res://audio/Grimm (Hollow Knight The Grimm Troupe).mp3"
+dest_files=["res://.godot/imported/Grimm (Hollow Knight The Grimm Troupe).mp3-75d8d4cc1cb5be57724793bde043af73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

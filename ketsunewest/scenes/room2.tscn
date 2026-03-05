@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://bbvjla7ka43os"]
+
+[ext_resource type="Script" uid="uid://bsetb1ie1x5d2" path="res://scenes/room_2.gd" id="1_d3uvb"]
+[ext_resource type="Texture2D" uid="uid://jcup44ax7015" path="res://tiles/map/room2.png" id="1_klc7l"]
+[ext_resource type="PackedScene" uid="uid://dt25rk7gid8tt" path="res://scenes/enemy.tscn" id="2_dbehi"]
+[ext_resource type="PackedScene" uid="uid://c65x1js4ybh4" path="res://scenes/door.tscn" id="3_s5pwh"]
+[ext_resource type="Resource" uid="uid://b2jnk0qqglch1" path="res://dialogue/encounter.dialogue" id="3_yfplu"]
+[ext_resource type="AudioStream" uid="uid://b38lsn7xnswvv" path="res://audio/Hollow Knight OST - Waterways (Action).mp3" id="6_duage"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3uvb"]
+size = Vector2(2091.5, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5pwh"]
+size = Vector2(62.5, 1083)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbehi"]
+size = Vector2(85.5, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfplu"]
+size = Vector2(917.5, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duage"]
+size = Vector2(54, 919)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucjjd"]
+size = Vector2(58.5, 313.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klc7l"]
+size = Vector2(1943, 1466)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xh3p"]
+size = Vector2(48.5, 251.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5pwh"]
+radius = 92.0489
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2robf"]
+size = Vector2(148, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7xmq"]
+size = Vector2(124.5, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olrvt"]
+size = Vector2(109, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wf3f"]
+size = Vector2(193, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwq2r"]
+size = Vector2(52, 294.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oibp2"]
+size = Vector2(63.5, 280)
+
+[node name="room2" type="Node2D" unique_id=1574053567]
+position = Vector2(-873, -528)
+script = ExtResource("1_d3uvb")
+enemy_scene = ExtResource("2_dbehi")
+finish_dialogue = ExtResource("3_yfplu")
+finish_dialogue_start = "EndTutorial"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1020616595]
+position = Vector2(903, 451)
+texture = ExtResource("1_klc7l")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1301476511]
+position = Vector2(903, 451)
+
+[node name="wall1" type="StaticBody2D" parent="Walls" unique_id=25900696]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/wall1" unique_id=866466934]
+position = Vector2(-29.75, -715.5)
+shape = SubResource("RectangleShape2D_d3uvb")
+
+[node name="wall2" type="StaticBody2D" parent="Walls" unique_id=1349957607]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/wall2" unique_id=2026523541]
+position = Vector2(-1028.75, 281.5)
+shape = SubResource("RectangleShape2D_s5pwh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/wall2" unique_id=1623817036]
+position = Vector2(-1036.25, -630.5)
+shape = SubResource("RectangleShape2D_dbehi")
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" unique_id=1625123825]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3" unique_id=66381807]
+position = Vector2(-556, 827)
+shape = SubResource("RectangleShape2D_yfplu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall3" unique_id=1087032787]
+position = Vector2(574, 825.5)
+shape = SubResource("RectangleShape2D_yfplu")
+
+[node name="wall4" type="StaticBody2D" parent="Walls" unique_id=766178636]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/wall4" unique_id=497311372]
+position = Vector2(976, -246.5)
+shape = SubResource("RectangleShape2D_duage")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/wall4" unique_id=731295455]
+position = Vector2(978.25, 661.75)
+shape = SubResource("RectangleShape2D_ucjjd")
+
+[node name="playerdetector" type="Area2D" parent="." unique_id=1555403100]
+position = Vector2(1477, 1253)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdetector" unique_id=18041247]
+position = Vector2(-601.5, -745)
+shape = SubResource("RectangleShape2D_klc7l")
+debug_color = Color(0.6878521, 0.39975047, 0.77509534, 0.41960785)
+
+[node name="door" parent="." unique_id=328231762 instance=ExtResource("3_s5pwh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=158080697]
+position = Vector2(-130, 47.75)
+shape = SubResource("RectangleShape2D_7xh3p")
+debug_color = Color(0.6201905, 0.5303291, 0.22958678, 0.41960785)
+
+[node name="randomstuff" type="StaticBody2D" parent="door" unique_id=2065098513]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/randomstuff" unique_id=814418805]
+position = Vector2(1364, -201)
+shape = SubResource("CircleShape2D_s5pwh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="door/randomstuff" unique_id=504456610]
+position = Vector2(23, -61.5)
+shape = SubResource("RectangleShape2D_2robf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="door/randomstuff" unique_id=273883326]
+position = Vector2(2.75, 1186)
+shape = SubResource("RectangleShape2D_c7xmq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="door/randomstuff" unique_id=564075199]
+position = Vector2(119.5, 1206.5)
+shape = SubResource("RectangleShape2D_olrvt")
+
+[node name="hole" type="StaticBody2D" parent="." unique_id=1176519072]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole" unique_id=60736426]
+position = Vector2(911.5, 1261)
+shape = SubResource("RectangleShape2D_5wf3f")
+
+[node name="spawn1" type="Marker2D" parent="." unique_id=37993427]
+position = Vector2(872, 18)
+
+[node name="spawn2" type="Marker2D" parent="." unique_id=1713324453]
+position = Vector2(124, 195)
+
+[node name="spawn3" type="Marker2D" parent="." unique_id=1894110836]
+position = Vector2(1576, 413)
+
+[node name="camerapoint" type="Marker2D" parent="." unique_id=1426270927]
+position = Vector2(886, 494)
+
+[node name="nobackwall2" type="StaticBody2D" parent="." unique_id=1208222622]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nobackwall2" unique_id=262764654]
+position = Vector2(1879, 804.75)
+shape = SubResource("RectangleShape2D_dwq2r")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=2055008609]
+stream = ExtResource("6_duage")
+volume_db = 24.0
+bus = &"Music"
+
+[node name="nobackwall" type="StaticBody2D" parent="." unique_id=856192047]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nobackwall" unique_id=1817417596]
+position = Vector2(-133.75, 45)
+shape = SubResource("RectangleShape2D_oibp2")
+
+[connection signal="body_entered" from="playerdetector" to="." method="_on_playerdetector_body_entered"]

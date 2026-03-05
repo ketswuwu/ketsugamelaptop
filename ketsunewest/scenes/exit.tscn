@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://56qfinlgduh2"]
+
+[ext_resource type="Script" uid="uid://bsdeagxxctwps" path="res://scenes/exit.gd" id="1_l0aq0"]
+[ext_resource type="Texture2D" uid="uid://bo21j61w6y7w4" path="res://sprites/button.png" id="2_uyw7u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyw7u"]
+bg_color = Color(0.2901961, 0.1254902, 0.2509804, 0)
+corner_radius_top_left = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5n14"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7mer"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka15t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2427a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywa8d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Exit" type="Control" unique_id=904954919]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l0aq0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1664122681]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -168.5
+offset_right = 216.0
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer" unique_id=573748299]
+position = Vector2(216, 78.5)
+scale = Vector2(0.71999514, 0.71999514)
+texture = ExtResource("2_uyw7u")
+
+[node name="Button1" type="Button" parent="VBoxContainer" unique_id=1636432648]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyw7u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l5n14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c7mer")
+text = "Exit
+"
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer" unique_id=699068644]
+position = Vector2(221, 253.49998)
+scale = Vector2(0.74661523, 0.74661523)
+texture = ExtResource("2_uyw7u")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1299503750]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ka15t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2427a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ywa8d")
+text = "Cancel
+"
+
+[connection signal="pressed" from="VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

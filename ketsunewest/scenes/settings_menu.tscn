@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ddko2mwdupq6n"]
+
+[ext_resource type="Script" uid="uid://dpd62iwd06awm" path="res://settings_menu.gd" id="1_05p07"]
+[ext_resource type="Texture2D" uid="uid://bo21j61w6y7w4" path="res://sprites/button.png" id="2_cr101"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr101"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wswnh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="settings_menu" type="Control" unique_id=920837065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = -15.0
+offset_right = 38.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05p07")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1067938548]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -77.0
+offset_right = 208.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer" unique_id=868889446]
+position = Vector2(210, 141.5)
+scale = Vector2(1.5138539, 2.7444935)
+texture = ExtResource("2_cr101")
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=2037402766]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Sound Settings"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=510294241]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer" unique_id=1836903042]
+layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+step = 0.1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=22963240]
+layout_mode = 2
+text = "Sound"
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer" unique_id=1116395976]
+layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+step = 0.1
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=792579533]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr101")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wswnh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_labj1")
+text = "Back
+"
+
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_settings_back_pressed"]

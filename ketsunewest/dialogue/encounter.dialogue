@@ -1,0 +1,8 @@
+~ EndTutorial
+set State.player_can_move = false
+Aya: That wasn't too bad. I needed a bit of warm up.
+Aya: Now where to go. The left path seems to have a sign with a skull on it. 
+Aya: Sure that spells good news. The right path seems a bit quieter. 
+Aya: Guess I'll have to choose which path to go.
+set State.player_can_move = true
+=> END

@@ -1,0 +1,61 @@
+~ start
+set State.in_cutscene = true
+set State.intro = "cutscene1"
+You creek your eyes open slightly, your vision is blurry.
+You hear indistinct chatting.
+???: Malapit na... 
+???: ...
+???: Huy, nagigising-
+Mayari: Huh?
+Mayari: A-ano? Anong nangyayari?
+Aga: Ok lang yan.
+Mayari: A-aga? H-hello?
+Aga: Mmmm... Hello, Aya.
+Mayari: W-what's happe-
+Aga: Ssshhhhh
+Aga places places their pointer finger on your lower lip.
+Aga: It's ok, Aya, just stay still ok.
+Mayari: Why? What's happening.
+Aga: Don't even worry about it. Just stay calm.
+Mayari: I-I am why do you keep repeating...
+You try to move your limbs. You are unable to. Your wrists and legs are restrained.
+Mayari: Hey! W-why am I bolted down.
+Aga: It's fine, Aya. Just calm down and let this happen...
+Mayari: L-let what happen!?
+Your vision clears. You see Aga towering over you with a strange object in his hand.
+Mayari: W-what are you doing? G-get me out this isn't funny, Aga!
+Aga: This is for your own good, Aya. You'll be thanking me soon.
+Mayari: For what!??
+set State.intro = "cutscene2"
+Aga lifts the object into the light. You can see it clearly. Some sort of rock.
+Aga: Soon you'll see, Aya, you'll be like me. Don't you want that? For us to be connected?
+Aga smiles at you with a genuine smile. His teeth clear in view. His fangs on display.
+Mayari: W-what the hell!? G-gagi ka! What are you?
+Aga: Do the fangs not give it away? Don't you want to be a strong Aswang like me?
+Mayari: Y-you're a... N-no! I don't want to. So you can stop now! 
+Aga: Hmphh, and here I thought you were a good choice to recruit.
+Aga: Guess you're just like the others. I'll have to force it down just like with them.
+Mayari: ... W-what?
+Mayari: P-pot- Mfghh
+Aga forces down the stone down your throat. It's agony. You feel yourself changing. Transforming.
+Your forehead hurts. Your hairs stand up. Teeth feel like they're rotting as your canines elongate...
+...
+set State.intro = "cutscene3"
+Mayari: That's what happened...
+Mayari: And now I'm an Aswang. A monster of the night. 
+Mayari: But I didn't join his disgusting group. Instead I am back for revenge. I'll find Aga, and bring and end to him.
+...
+Weeks later.
+set State.intro = "cutscene4"
+Aga: AHAAHAHAHA! You're beautiful, Aya!
+Aga: You've bloomed into such a wonderful ghoulish creature! Grateful aren't you?
+Mayari: Hell no, idiot. Just quit running already.
+Aga: You know if you weren't an Aswang you couldn't even get close to catching up to me...
+Mayari: Tumahimik ka! Just get over here and die already!
+Aga: Ahahaha! No.
+Aga: If you really want me that badly. Come and get me!
+Aga floats off and descends a flight of cobbled stairs. Ruins.
+Mayari: You're not getting away that easily...
+You pursue him down into the depths of this ancient sanctuary. What might you find down there in your pursuit of revenge?
+set State.in_cutscene = false
+=> END!

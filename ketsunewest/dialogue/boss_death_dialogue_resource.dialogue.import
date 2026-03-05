@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c0aoqm2ckhwxs"
+path="res://.godot/imported/boss_death_dialogue_resource.dialogue-ade814424522d6a8d238bb95ba8c6ca3.tres"
+
+[deps]
+
+source_file="res://dialogue/boss_death_dialogue_resource.dialogue"
+dest_files=["res://.godot/imported/boss_death_dialogue_resource.dialogue-ade814424522d6a8d238bb95ba8c6ca3.tres"]
+
+[params]
+
+defaults=true

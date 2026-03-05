@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5vwvkiyg0ysj"]
+
+[ext_resource type="PackedScene" uid="uid://dt5mhlrqp6tsd" path="res://scenes/actionable.tscn" id="1_i5y0j"]
+[ext_resource type="Resource" uid="uid://dttikqahansw" path="res://dialogue/talking.dialogue" id="2_qlfj1"]
+[ext_resource type="Texture2D" uid="uid://cn1vergl18cmc" path="res://sprites/chest.png" id="3_qlfj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dww0s"]
+radius = 61.0
+
+[node name="Node2D" type="Node2D" unique_id=1795662721]
+
+[node name="Actionable" parent="." unique_id=278634008 instance=ExtResource("1_i5y0j")]
+dialogue_resource = ExtResource("2_qlfj1")
+dialogue_start = "chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable" unique_id=91996351]
+shape = SubResource("CircleShape2D_dww0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953300869]
+position = Vector2(0.304348, -5)
+scale = Vector2(0.82608694, 0.82608694)
+texture = ExtResource("3_qlfj1")

@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://dn3m6nwabfjy0"]
+
+[ext_resource type="Script" uid="uid://bn610ctmoqvvo" path="res://scenes/hallway_1.gd" id="1_4u0yh"]
+[ext_resource type="Texture2D" uid="uid://b6sqtjtbj2hvm" path="res://tiles/map/hallway1.png" id="1_jsa5y"]
+[ext_resource type="PackedScene" uid="uid://dt25rk7gid8tt" path="res://scenes/enemy.tscn" id="2_gdbsj"]
+[ext_resource type="PackedScene" uid="uid://dcroeci2yb12w" path="res://scenes/ranged_enemy.tscn" id="3_kgmwk"]
+[ext_resource type="Texture2D" uid="uid://ben2lt2nxtchm" path="res://sprites/default/test/gate5.png" id="3_pm05s"]
+[ext_resource type="Script" uid="uid://bsi38de28x653" path="res://WaveConfig.gd" id="3_v2fgs"]
+[ext_resource type="Texture2D" uid="uid://cdkmad806cttr" path="res://sprites/default/test/gate3.png" id="4_4u0yh"]
+[ext_resource type="Texture2D" uid="uid://caqtabkk3loxw" path="res://sprites/default/test/gate1.png" id="5_gdbsj"]
+[ext_resource type="AudioStream" uid="uid://b38lsn7xnswvv" path="res://audio/Hollow Knight OST - Waterways (Action).mp3" id="5_vocw4"]
+[ext_resource type="AudioStream" uid="uid://c21j2u84lrs1w" path="res://audio/soundreality-metal-door-slam-172172.mp3" id="7_gdbsj"]
+
+[sub_resource type="Resource" id="Resource_vocw4"]
+script = ExtResource("3_v2fgs")
+scenes = Array[PackedScene]([ExtResource("2_gdbsj"), ExtResource("2_gdbsj"), ExtResource("2_gdbsj")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="Resource" id="Resource_88sjj"]
+script = ExtResource("3_v2fgs")
+scenes = Array[PackedScene]([ExtResource("2_gdbsj"), ExtResource("2_gdbsj"), ExtResource("3_kgmwk")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="Resource" id="Resource_50jlw"]
+script = ExtResource("3_v2fgs")
+scenes = Array[PackedScene]([ExtResource("3_kgmwk"), ExtResource("3_kgmwk"), ExtResource("2_gdbsj")])
+metadata/_custom_type_script = "uid://bsi38de28x653"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsa5y"]
+size = Vector2(763.75, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5lmo"]
+size = Vector2(2308, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ytm"]
+size = Vector2(77.5, 279.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2btdt"]
+size = Vector2(79, 274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm05s"]
+size = Vector2(75.25, 220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u0yh"]
+size = Vector2(70, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgmwk"]
+size = Vector2(1358, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsa5y"]
+radius = 94.02127
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdbsj"]
+size = Vector2(157, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2fgs"]
+size = Vector2(136, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vocw4"]
+size = Vector2(50, 185)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgmwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pm05s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4u0yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gdbsj")
+}],
+"loop": false,
+"name": &"gate_down",
+"speed": 17.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gdbsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4u0yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pm05s")
+}],
+"loop": false,
+"name": &"gate_up",
+"speed": 17.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"no",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4u0yh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pm05s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4u0yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gdbsj")
+}],
+"loop": false,
+"name": &"gate_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gdbsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4u0yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pm05s")
+}],
+"loop": false,
+"name": &"gate_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88sjj"]
+size = Vector2(2144, 496)
+
+[node name="Node2D" type="Node2D" unique_id=420864583]
+script = ExtResource("1_4u0yh")
+enemy_scene = ExtResource("2_gdbsj")
+waves = Array[ExtResource("3_v2fgs")]([SubResource("Resource_vocw4"), SubResource("Resource_88sjj"), SubResource("Resource_50jlw")])
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1709479713]
+stream = ExtResource("5_vocw4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1928251793]
+texture = ExtResource("1_jsa5y")
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=658599209]
+
+[node name="wall1" type="CollisionShape2D" parent="walls" unique_id=1336650046]
+position = Vector2(-762.875, -200)
+shape = SubResource("RectangleShape2D_jsa5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls" unique_id=852412772]
+position = Vector2(7, 321)
+shape = SubResource("RectangleShape2D_t5lmo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls" unique_id=704891741]
+position = Vector2(-1103.25, 190.75)
+shape = SubResource("RectangleShape2D_y2ytm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls" unique_id=1829015678]
+position = Vector2(1107.5, 195)
+shape = SubResource("RectangleShape2D_2btdt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls" unique_id=1527231384]
+position = Vector2(1109.375, -244)
+shape = SubResource("RectangleShape2D_pm05s")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls" unique_id=221181978]
+position = Vector2(-1104, -189)
+shape = SubResource("RectangleShape2D_4u0yh")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls" unique_id=649543407]
+position = Vector2(429, -201.5)
+shape = SubResource("RectangleShape2D_kgmwk")
+
+[node name="randomstuff" type="StaticBody2D" parent="." unique_id=1097450171]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="randomstuff" unique_id=1449842479]
+position = Vector2(-39, -151)
+shape = SubResource("CircleShape2D_jsa5y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="randomstuff" unique_id=1333636264]
+position = Vector2(249.5, -167)
+shape = SubResource("RectangleShape2D_gdbsj")
+
+[node name="hole" type="StaticBody2D" parent="." unique_id=1120562563]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole" unique_id=495298168]
+position = Vector2(-321, -201)
+shape = SubResource("RectangleShape2D_v2fgs")
+
+[node name="nobackwall" type="StaticBody2D" parent="." unique_id=1314653790]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nobackwall" unique_id=790059045]
+position = Vector2(1096, -37.5)
+shape = SubResource("RectangleShape2D_vocw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="nobackwall" unique_id=1217346673]
+position = Vector2(1091.25, -12.804159)
+scale = Vector2(0.55154663, 0.55154663)
+sprite_frames = SubResource("SpriteFrames_kgmwk")
+animation = &"gate_up"
+
+[node name="nobackwall2" type="StaticBody2D" parent="." unique_id=245379594]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nobackwall2" unique_id=774162763]
+position = Vector2(-1100, -42)
+shape = SubResource("RectangleShape2D_vocw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="nobackwall2" unique_id=168947373]
+position = Vector2(-1096.7501, -7.639172)
+scale = Vector2(0.48969075, 0.48969072)
+sprite_frames = SubResource("SpriteFrames_4u0yh")
+animation = &"gate_up"
+
+[node name="playerdetector" type="Area2D" parent="." unique_id=549251922]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdetector" unique_id=1386419033]
+position = Vector2(0, 63)
+shape = SubResource("RectangleShape2D_88sjj")
+debug_color = Color(0.731181, 0.41657203, 0.59583217, 0.41960785)
+
+[node name="spawn1" type="Marker2D" parent="." unique_id=750170309]
+position = Vector2(-978, 53)
+
+[node name="spawn2" type="Marker2D" parent="." unique_id=703204222]
+position = Vector2(-591, -97)
+
+[node name="spawn3" type="Marker2D" parent="." unique_id=1184823897]
+position = Vector2(-587, 218)
+
+[node name="camerapoint" type="Marker2D" parent="." unique_id=536057499]
+position = Vector2(-60, 49)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=812247896]
+stream = ExtResource("7_gdbsj")
+bus = &"SFX"
+
+[connection signal="body_entered" from="playerdetector" to="nobackwall" method="_on_playerdetector_body_entered"]

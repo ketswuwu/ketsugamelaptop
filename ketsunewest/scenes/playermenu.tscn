@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cwghqfhvgvvh3"]
+
+[ext_resource type="Script" uid="uid://dskjh6tkit7dx" path="res://scenes/inventory.gd" id="1_f08l7"]
+[ext_resource type="Texture2D" uid="uid://dqrrc8dkto83n" path="res://sprites/INVENTORY.png" id="2_8hvjx"]
+[ext_resource type="Texture2D" uid="uid://byvta1dmvjtc0" path="res://sprites/potion.png" id="3_muiii"]
+
+[node name="Playermenu" type="CanvasLayer" unique_id=1724313910 groups=["inventory_menu"]]
+process_mode = 3
+script = ExtResource("1_f08l7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1758229505]
+position = Vector2(964, 502)
+scale = Vector2(1.342031, 1.342031)
+texture = ExtResource("2_8hvjx")
+
+[node name="Potion" type="Sprite2D" parent="." unique_id=885477509]
+process_mode = 3
+visible = false
+position = Vector2(1126, 281)
+texture = ExtResource("3_muiii")

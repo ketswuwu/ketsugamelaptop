@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bphfybegd7405"
+path="res://.godot/imported/respawns.dialogue-fbadb4c3d28bfbb9fdf54479355d4ad4.tres"
+
+[deps]
+
+source_file="res://dialogue/respawns.dialogue"
+dest_files=["res://.godot/imported/respawns.dialogue-fbadb4c3d28bfbb9fdf54479355d4ad4.tres"]
+
+[params]
+
+defaults=true

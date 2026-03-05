@@ -1,0 +1,24 @@
+~ start
+set State.in_cutscene = true
+set State.boss_can_move = false
+set State.player_can_move = false
+set State.in_boss = "true"
+if State.note_status == "read"
+	Mayari: It's you, you're the manananggal the note was talking about aren't you.
+	Manananggal: N-note? What are you talking about. Also, I have a name.
+	Mayari:  Paki ko sa pangalan mo?
+	Manananggal: Bastos mo naman! Hmphh.
+	Manananggal: Papatayin naman kita, kaya edi ano kung nalaman mo pangalan ko.
+	Ana: Ako'y si Ana
+	Ana: At nagugutom na ako.
+else
+	???: Why hello there...
+	Mayari: What- er who... are you?
+	???: What's it matter to you. I'm Ana. 
+	Ana: Though, it doesn't matter...
+	Ana: You'll die like the rest all the same.
+set State.player_can_move = true
+set State.in_boss = "false"
+set State.boss_can_move = true
+set State.in_cutscene = false
+=> END

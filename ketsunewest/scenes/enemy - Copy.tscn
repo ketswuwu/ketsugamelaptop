@@ -1,0 +1,268 @@
+[gd_scene format=3 uid="uid://bqcxhobdkpg2y"]
+
+[ext_resource type="Script" uid="uid://pf4bnfykybbg" path="res://scenes/manananggal.gd" id="1_ncg74"]
+[ext_resource type="Texture2D" uid="uid://leirawwujtg6" path="res://sprites/default/boss/dashing3.png" id="2_1jws0"]
+[ext_resource type="AudioStream" uid="uid://5d5t6nrbu7md" path="res://audio/#cartoon  Dizzy sound effect.mp3" id="2_6mxg7"]
+[ext_resource type="Texture2D" uid="uid://dcgxq7lbt2ehh" path="res://sprites/default/boss/idle_1.png" id="2_xjj0r"]
+[ext_resource type="AudioStream" uid="uid://71e1kcmqfk1j" path="res://audio/Scream with echo Sound effect.mp3" id="3_1ag40"]
+[ext_resource type="Texture2D" uid="uid://k7hph04i8x8i" path="res://sprites/default/boss/dashing4.png" id="3_5m25a"]
+[ext_resource type="Texture2D" uid="uid://3151hrrnlef4" path="res://sprites/default/boss/idle2.png" id="3_mfsj4"]
+[ext_resource type="Script" uid="uid://c157vk1c6n21g" path="res://scenes/hitboxmanananggal.gd" id="3_ncg74"]
+[ext_resource type="Texture2D" uid="uid://uehbyaf27lhr" path="res://sprites/default/boss/landed_1.png" id="3_pbhxj"]
+[ext_resource type="Texture2D" uid="uid://dqls7qduoxwc5" path="res://sprites/default/boss/dashing1.png" id="6_6mxg7"]
+[ext_resource type="Texture2D" uid="uid://cdn8mlcynpo3u" path="res://sprites/default/boss/dashing2.png" id="7_1ag40"]
+[ext_resource type="Texture2D" uid="uid://cpaerewx6xlha" path="res://sprites/default/boss/screaming1.png" id="9_wqd4e"]
+[ext_resource type="Texture2D" uid="uid://cfeg0ututl8uq" path="res://sprites/default/boss/screaming2.png" id="10_m40e4"]
+[ext_resource type="Texture2D" uid="uid://cbujrjhkv66pr" path="res://sprites/default/boss/screaming3.png" id="11_7gfh3"]
+[ext_resource type="Texture2D" uid="uid://c2v6udn4ycpru" path="res://sprites/default/boss/screaming4.png" id="12_xu350"]
+[ext_resource type="Texture2D" uid="uid://udxwjpxcf6d1" path="res://sprites/default/boss/screaming5.png" id="13_bu5yn"]
+[ext_resource type="Texture2D" uid="uid://pqclkteekk44" path="res://sprites/default/boss/stunned1.png" id="14_ylhgx"]
+[ext_resource type="Texture2D" uid="uid://dydmr3ftq7xvc" path="res://sprites/default/boss/stunned2.png" id="15_flost"]
+[ext_resource type="Texture2D" uid="uid://hy4c2mmqtc71" path="res://sprites/default/boss/stunned3.png" id="16_up27q"]
+[ext_resource type="Texture2D" uid="uid://5ogww0wjsktw" path="res://sprites/default/boss/stunned4.png" id="17_ax5fu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfsj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1jws0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5m25a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jws0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5m25a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jws0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5m25a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jws0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5m25a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jws0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5m25a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jws0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5m25a")
+}],
+"loop": false,
+"name": &"dashing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xjj0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mfsj4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6mxg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ag40")
+}],
+"loop": false,
+"name": &"initiate_dash",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pbhxj")
+}],
+"loop": false,
+"name": &"landed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("9_wqd4e")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_m40e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7gfh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xu350")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bu5yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xu350")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bu5yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xu350")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bu5yn")
+}],
+"loop": false,
+"name": &"screaming",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ylhgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_flost")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ax5fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_flost")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ax5fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_flost")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ax5fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_flost")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_up27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ax5fu")
+}],
+"loop": false,
+"name": &"stunned",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ra3w"]
+radius = 15.0
+height = 70.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
+radius = 18.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 680.07355
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md0e3"]
+radius = 43.0
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jws0"]
+radius = 45.0
+height = 90.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=1381143129 groups=["boss", "enemy"]]
+collision_layer = 16
+collision_mask = 33
+script = ExtResource("1_ncg74")
+
+[node name="#cartoonDizzySoundEffect" type="AudioStreamPlayer" parent="." unique_id=1373238905]
+stream = ExtResource("2_6mxg7")
+volume_db = 6.527
+bus = &"SFX"
+
+[node name="ScreamWithEchoSoundEffect" type="AudioStreamPlayer" parent="." unique_id=1504628176]
+stream = ExtResource("3_1ag40")
+volume_db = 5.052
+bus = &"SFX"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2080500970]
+position = Vector2(1.9999995, -2.9999962)
+scale = Vector2(0.34046963, 0.34046966)
+sprite_frames = SubResource("SpriteFrames_mfsj4")
+animation = &"idle"
+
+[node name="WandererTimer" type="Timer" parent="." unique_id=498703974]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1938881351]
+visible = false
+position = Vector2(6, -5)
+shape = SubResource("CapsuleShape2D_4ra3w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=474147839 groups=["enemy"]]
+visible = false
+position = Vector2(7, -6)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=47380270]
+shape = SubResource("CapsuleShape2D_7p1mj")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=1703589951]
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=837413452]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=882025899]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=155464236 groups=["enemy_hurtbox"]]
+script = ExtResource("3_ncg74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1554255047]
+position = Vector2(7, -7)
+shape = SubResource("CapsuleShape2D_md0e3")
+
+[node name="ContactDamage" type="Area2D" parent="." unique_id=741009090]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage" unique_id=203867362]
+position = Vector2(5, -9)
+shape = SubResource("CapsuleShape2D_1jws0")
+
+[connection signal="timeout" from="WandererTimer" to="." method="_on_wanderer_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="Area2D" method="_on_damage_timer_timeout"]
+[connection signal="area_entered" from="DetectionArea" to="Area2D" method="_on_detection_area_area_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
